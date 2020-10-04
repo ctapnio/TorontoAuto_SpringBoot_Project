@@ -1,0 +1,42 @@
+<!-- Christian Tapnio
+	991359879
+	Assignment 3 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" type="text/css" media="all" href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body class="grey lighten-5">
+	<h1>Login</h1>
+	<div class="container">
+	<form method="post" th:action="@{/login}">
+<!-- 		IF -->
+		<div th:if="${param.error}">
+			<div class="error">Invalid username or password.</div>
+		</div>
+		
+		<div th:if="${param.logout}">
+			<div class="error">You have been logged out.</div>
+		</div>
+		
+		<div>
+			<label>Email: </label><input type="email" name="username" /><br>
+			<label>Password: </label><input type="password" name="password" /><br>
+			<input class="waves-effect deep-purple lighten-5 btn" type="submit" name="login-submit" value="Log In" />
+		</div>
+	</form>
+	
+	</div>	
+	
+	<p>
+		<a href="/" th:href="@{/}">Back to home page</a>
+	</p>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!-- Christian Tapnio
+	991359879
+	Assignment 3 -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
+</head>
+<body>
+	<h5>Insert Car</h5>
+	
+	<div class="container">
+		<form method="post" action="#" th:action="@{/insertCar}">
+			<label>Manufacturer ID: </label> 
+			<select th:field="*{car.manufacturerID}" class="browser-default">
+				<option th:each="c:*{manufacturerList}" th:value="${c.manufacturerID}" th:text="${c.manufacturerID}">
+			</select><br> 
+			
+			<label>Model</label>
+			<input type="text" name="model" th:field="*{car.model}" required/><br> 
+			
+			<label>Year</label>
+			<input type="number" name="year" th:field="*{car.year}" required/><br> 
+			
+			<label>Color</label>
+			<input type="text" name="color" th:field="*{car.color}" required/><br> 
+			
+			<label>Price</label>
+			<input type="number" min="0" step="any" name="price" th:field="*{car.price}" required/><br>
+			
+			<button class="btn waves-effect waves-light indigo lighten-3" type="submit" name="action">
+					 <i class="material-icons">insert</i>
+				</button>
+		</form>
+	
+	</div>
+	
+	<p>
+		<a href="/" th:href="@{/}">Back to home page</a>
+	</p>
+</body>
+</html>

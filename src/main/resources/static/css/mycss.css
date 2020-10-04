@@ -1,0 +1,50 @@
+/* Christian Tapnio
+	991359879
+	Assignment 3
+ */
+@charset "UTF-8";
+
+.error {
+	color: red;
+}
+
+p {
+	text-align: center;
+}
+
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h2 {
+	font-family: "Times New Roman", Times, serif;
+	color: #7563aa;
+	display: flex;
+	margin-top: 0;
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+	margin-right: 15%;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+}
+
+.btn {
+	padding: 1px;
+	width: 33.3%;
+}
+
+form {
+	width: 90%;
+}
+
+form input:invalid {
+  border-left-color: salmon;
+}
