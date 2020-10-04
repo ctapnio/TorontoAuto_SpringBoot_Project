@@ -43,7 +43,7 @@ public class HomeController {
 		m.addAttribute("carList", da.getCars());
 		m.addAttribute("manufacturer", new Manufacturer());
 		m.addAttribute("manufacturerList", da.getManufacturers());
-		return "/user/insert";
+		return "user/insert";
 	}
 	
 	@RequestMapping("/user/update")
@@ -52,7 +52,7 @@ public class HomeController {
 		m.addAttribute("carList", da.getCars());
 		m.addAttribute("manufacturer", new Manufacturer());
 		m.addAttribute("manufacturerList", da.getManufacturers());
-		return "/user/update";
+		return "user/update";
 	}
 	
 	@RequestMapping("/admin/delete")
@@ -61,7 +61,7 @@ public class HomeController {
 		m.addAttribute("carList", da.getCars());
 		m.addAttribute("manufacturer", new Manufacturer());
 		m.addAttribute("manufacturerList", da.getManufacturers());
-		return "/admin/delete";
+		return "admin/delete";
 	}
 	
 	@RequestMapping("/insert")
@@ -70,7 +70,7 @@ public class HomeController {
 		m.addAttribute("manufacturer", new Manufacturer());
 		m.addAttribute("manufacturerList", da.getManufacturers());
 		// m.addAttribute("carList", da.getCars());
-		return "/user/insert";
+		return "user/insert";
 	}
 
 	@PostMapping("/insertCar")
@@ -79,14 +79,14 @@ public class HomeController {
 		da.insertCar(manufacturerID, model, year, color, price);
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
-		return "/user/insert";
+		return "user/insert";
 	}
 
 	@GetMapping("/update")
 	public String update(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
-		return "/user/update";
+		return "user/update";
 	}
 
 	@GetMapping("/editCar/{carID}")
@@ -94,7 +94,7 @@ public class HomeController {
 		Car car = da.getCarByCarID(carID).get(0);
 		m.addAttribute("car", car);
 		m.addAttribute("carList", da.getCars());
-		return "/user/update";
+		return "user/update";
 	}
 
 	@PostMapping("/updateCar")
@@ -102,14 +102,14 @@ public class HomeController {
 		da.updateCar(car.getCarID(), car.getModel(), car.getPrice());
 		m.addAttribute("Car", new Car());
 		m.addAttribute("carList", da.getCars());
-		return "/user/update";
+		return "user/update";
 	}
 
 	@GetMapping("/delete")
 	public String delete(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
-		return "/admin/delete";
+		return "admin/delete";
 	}
 
 	@PostMapping("/deleteCar")
@@ -117,7 +117,7 @@ public class HomeController {
 		da.deleteCar(carID);
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
-		return "/admin/delete";
+		return "admin/delete";
 	}
 	
 //	@GetMapping("/permission-denied")
