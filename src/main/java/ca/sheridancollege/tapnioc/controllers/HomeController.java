@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ca.sheridancollege.tapnioc.beans.Car;
@@ -24,19 +25,19 @@ public class HomeController {
 	@Autowired
 	private DatabaseAccess da;
 
-	@GetMapping("/")
+	@RequestMapping("/")
 	public String goHome(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
 		return "index";
 	}
 
-	@GetMapping("/login")
+	@RequestMapping("/login")
 	public String login() {
 		return "login";
 	}
 	
-	@GetMapping("/user/insert")
+	@RequestMapping("/user/insert")
 	public String secureIsert(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
@@ -45,7 +46,7 @@ public class HomeController {
 		return "/user/insert";
 	}
 	
-	@GetMapping("/user/update")
+	@RequestMapping("/user/update")
 	public String secureUpdate(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
@@ -54,7 +55,7 @@ public class HomeController {
 		return "/user/update";
 	}
 	
-	@GetMapping("/admin/delete")
+	@RequestMapping("/admin/delete")
 	public String secureDelete(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("carList", da.getCars());
@@ -63,7 +64,7 @@ public class HomeController {
 		return "/admin/delete";
 	}
 	
-	@GetMapping("/insert")
+	@RequestMapping("/insert")
 	public String insert(Model m) {
 		m.addAttribute("car", new Car());
 		m.addAttribute("manufacturer", new Manufacturer());
