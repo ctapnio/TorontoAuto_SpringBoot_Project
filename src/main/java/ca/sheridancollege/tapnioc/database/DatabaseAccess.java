@@ -5,10 +5,10 @@
  * */
 package ca.sheridancollege.tapnioc.database;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,39 +19,39 @@ import org.springframework.stereotype.Repository;
 
 import ca.sheridancollege.tapnioc.beans.Car;
 import ca.sheridancollege.tapnioc.beans.Manufacturer;
-import ca.sheridancollege.tapnioc.beans.User;
+//import ca.sheridancollege.tapnioc.beans.User;
 @Repository
 public class DatabaseAccess {
 	List<Car> carList = new CopyOnWriteArrayList<Car>();
 	@Autowired
 	private NamedParameterJdbcTemplate jdbc;
 
-	public User findUserAccount(String email) {//fetching account according to email
-		MapSqlParameterSource parameters = new MapSqlParameterSource();
-		String query = "SELECT * FROM sec_user where email=:email";
-		parameters.addValue("email", email);
-		ArrayList<User> users = (ArrayList<User>) jdbc.query(query, parameters,
-				new BeanPropertyRowMapper<User>(User.class));
-		if (users.size() > 0)
-			return users.get(0);
-		else
-			return null;
-	}
-
-	public List<String> getRolesById(Long userId) {//fetching roles according to userId
-		ArrayList<String> roles = new ArrayList<String>();
-		MapSqlParameterSource parameters = new MapSqlParameterSource();
-		String query = "select user_role.userId, sec_role.roleName " 
-				+ "FROM user_role, sec_role "
-				+ "WHERE user_role.roleId=sec_role.roleId " 
-				+ "AND userId=:userId";
-		parameters.addValue("userId", userId);
-		List<Map<String, Object>> rows = jdbc.queryForList(query, parameters); for (Map<String, Object> row :rows) {
-		roles.add((String)row.get("roleName"));
-		}
-		return roles; 
-	}
-	
+//	public User findUserAccount(String email) {//fetching account according to email
+//		MapSqlParameterSource parameters = new MapSqlParameterSource();
+//		String query = "SELECT * FROM sec_user where email=:email";
+//		parameters.addValue("email", email);
+//		ArrayList<User> users = (ArrayList<User>) jdbc.query(query, parameters,
+//				new BeanPropertyRowMapper<User>(User.class));
+//		if (users.size() > 0)
+//			return users.get(0);
+//		else
+//			return null;
+//	}
+//
+//	public List<String> getRolesById(Long userId) {//fetching roles according to userId
+//		ArrayList<String> roles = new ArrayList<String>();
+//		MapSqlParameterSource parameters = new MapSqlParameterSource();
+//		String query = "select user_role.userId, sec_role.roleName " 
+//				+ "FROM user_role, sec_role "
+//				+ "WHERE user_role.roleId=sec_role.roleId " 
+//				+ "AND userId=:userId";
+//		parameters.addValue("userId", userId);
+//		List<Map<String, Object>> rows = jdbc.queryForList(query, parameters); for (Map<String, Object> row :rows) {
+//		roles.add((String)row.get("roleName"));
+//		}
+//		return roles; 
+//	}
+//	
 	public void insertCar() {
 		String query = "INSERT INTO car(manufacturerID, model, year, color, price) VALUES ('00001', 'Toyota', '2007', 'red', '1.99')";
 		int rowsAffected = jdbc.update(query, new HashMap());

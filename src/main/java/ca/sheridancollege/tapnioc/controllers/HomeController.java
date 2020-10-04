@@ -119,10 +119,10 @@ public class HomeController {
 		return "/admin/delete";
 	}
 	
-	@GetMapping("/permission-denied")
-	public String permissionDenied() {
-		return "/error/permission-denied";
-	}
+//	@GetMapping("/permission-denied")
+//	public String permissionDenied() {
+//		return "/error/permission-denied";
+//	}
 
 }
 
