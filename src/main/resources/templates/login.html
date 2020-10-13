@@ -13,7 +13,14 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body class="grey lighten-5">
-	<h1>Login</h1>
+	<nav>
+	    <div class="nav-wrapper indigo lighten-2">
+	      <a href="/" class="brand-logo">Toronto Auto</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <!-- <li><a th:href="@{/login}">Login</a></li> -->
+	      </ul>
+	    </div>
+  	</nav>
 	<div class="container">
 	<form method="post" th:action="@{/login}">
 <!-- 		IF -->
@@ -24,7 +31,7 @@
 		<div th:if="${param.logout}">
 			<div class="error">You have been logged out.</div>
 		</div>
-		
+		<br>
 		<div>
 			<label>Email: </label><input type="email" name="username" /><br>
 			<label>Password: </label><input type="password" name="password" /><br>

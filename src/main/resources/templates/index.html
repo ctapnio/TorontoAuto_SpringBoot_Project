@@ -7,14 +7,33 @@
 <meta charset="ISO-8859-1">
 <title>Home</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <link rel="stylesheet" type="text/css" media="all" href="../static/css/mycss.css" th:href="@{/css/mycss.css}" />
 </head>
 <body>
-	<div class="container">
-		<h2>Toronto Auto</h2>
+	
+	<nav>
+	    <div class="nav-wrapper indigo lighten-2">
+	      <a href="/" class="brand-logo">Toronto Auto</a>
+	      	<div th:if="${param.login}">
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a th:href="@{/logout}">Logout</a></li>
+		      	</ul>
+			</div>
+			<div th:if="${param.logout}">
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+			        <li><a th:href="@{/login}">Login</a></li>
+		      	</ul>
+			</div>
+	    </div>
+  	</nav>
+	<div class="fixed-action-btn">
+		<a class="btn-floating btn-large waves-effect waves-light indigo lighten-2 " th:href="@{/user/insert}"><i class="material-icons">add</i></a>
+		<a class="btn-floating btn-large waves-effect waves-light indigo lighten-2 " th:href="@{/user/update}"><i class="material-icons">update</i></a>
+		<a class="btn-floating btn-large waves-effect waves-light indigo lighten-2 " th:href="@{/admin/delete}"><i class="material-icons">delete</i></a>
 	</div>
-
+	<h5>Cars Available</h5>
 	<div class="container">
 		<table class="striped">
 			<tr>
@@ -35,11 +54,9 @@
 		</table>
 	</div>
 	<br>
-	<div class="container">
-		<a class="waves-effect waves-light indigo lighten-2 btn" href="/user/insert" th:href="@{/user/insert}">Insert Car</a>
-		<a class="waves-effect waves-light indigo lighten-2 btn" href="/user/update" th:href="@{/user/update}">Update Car</a>
-		<a class="waves-effect waves-light indigo lighten-2 btn" href="/admin/delete" th:href="@{/admin/delete}">Delete Car</a>
-	</div>
+	
+	
+	
 	<br>
 </body>
 </html>
